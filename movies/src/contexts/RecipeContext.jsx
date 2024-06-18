@@ -16,6 +16,9 @@ const recipeReducer = (state, action) => {
     case 'SELECT_RECIPE':
       return { ...state, selectedRecipe: action.payload };
     case 'ADD_FAVORITE':
+      if (state.favorites.find(recipe => recipe.idMeal === action.payload.idMeal)) {
+        return state; // Prevent duplicate favorites
+      }
       return { ...state, favorites: [...state.favorites, action.payload] };
     default:
       return state;
