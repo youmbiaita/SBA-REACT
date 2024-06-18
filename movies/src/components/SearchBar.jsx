@@ -1,28 +1,24 @@
-import { useState, useContext } from "react";
-import { SearchContext } from "../contexts/SearchContext";
-import { fetchMovies } from '../api';
+// src/components/SearchBar.js
+import React, { useState } from 'react';
 
-const SearchBar = () => {
-    const [bar, setBar] = useState("");
-    const {dispatch} = useContext(SearchContext);
+const SearchBar = ({ onSearch }) => {
+  const [query, setQuery] = useState('');
 
-    const handleSearch = async (e) => {
-        e.preventDefault();
+  const handleSearch = () => {
+    onSearch(query);
+  };
 
-        const results = await fetchMovies(bar);
-        dispatch({type: "SET_SEARCH_RESULTS", payload: results })
-    }
+  return (
+    <div className="search-bar">
+      <input
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search for recipes..."
+      />
+      <button onClick={handleSearch}>Search</button>
+    </div>
+  );
+};
 
-    return (
-        <form onSubmit={handleSearch}>
-        <input 
-          type="text" 
-          value={query} 
-          onChange={(e) => setQuery(e.target.value)} 
-          placeholder="Search for a movie..."
-        />
-        <button type="submit">Search</button>
-      </form>
-    )
-}
 export default SearchBar;

@@ -11,4 +11,4 @@ const SearchProvider = ({children}) => {
         </SearchContext.Provider>
     )
 };
-export { searchContext, SearchProvider};
+export { SearchContext, SearchProvider};
