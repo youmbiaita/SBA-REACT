@@ -85,7 +85,7 @@ main {
 .recipe-list,
 .recipe-details,
 .favorites {
-  background-color: black;
+  background-color: rgb(120, 69, 69);
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -113,11 +113,12 @@ main {
 }
 
 footer {
-  background-color: black;
+  background-color:rgba(16, 11, 11, 0.501);
+  color: black;
   padding: 1rem;
   text-align: center;
   width: 100%;
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -2px 4px rgba(90, 30, 30, 0.683);
   position: relative;
   bottom: 0;
 }
